@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/rojoFuego.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Selector Juego</title>
+</head>
+<body class="">
+    <div class="header">
+        <div class="previous-index">
+
+            <a href="selectorGame.html"><i class="fas fa-arrow-left"></i></a>
+        </div>
+        <div class="version-data">
+
+            <span>Alpha 1.0</span>
+        </div>
+    </div>
+    <div class="content">
+        <div class="title">
+            <h1 id="title_page">POKEMON LIBRARY</h1>
+        </div>
+        <div class="main">
+            <div class="aside">
+                <div class="list-options">
+                    <p id="inicio">Inicio</p>
+                    <p id="personajes">Personajes</p>
+                    <p id="pokedex">Pokedex</p>
+                </div>
+            </div>
+            <div class="info_page">
+
+                <section id="grid-inicio" class="tab-content" >
+                    <div>
+                        ¡Te damos la bienvenida a la Región de Kanto!
+                        Pokémon Versión Rojo Fuego es el remake definitivo del juego que lo inició todo. Aquí comienzas desde cero como un joven entrenador en Pueblo Paleta con un gran sueño: recorrer el mundo, capturar criaturas salvajes llamadas Pokémon y entrenarlas para convertirte en el Campeón de la Liga.
+
+                        Si eres nuevo en este universo, estás en el lugar perfecto. En este "mundo" explorarás praderas, cuevas y océanos mientras desafías a 8 Líderes de Gimnasio legendarios y frustras los planes del malvado Equipo Rocket.
+
+                        Usa el menú de la izquierda para descubrir qué criaturas habitan en cada ruta, cómo evolucionan tus compañeros y qué ataques pueden aprender en esta aventura en específico. ¡Tu viaje Pokémon comienza aquí!
+                    </div>
+                    <article class="info-card">
+                        <h3>Ficha del Mundo</h3>
+                        <ul>
+                            <li><strong>Consola:</strong> GameBoy Advance</li>
+                            <li><strong>Líderes de Gimnasio:</strong> 8 principales + Alto Mando</li>
+                            <li><strong>Formato:</strong> Ataques físicos/especiales dependen del Tipo del movimiento.</li>
+                        </ul>
+                    </article>
+            
+                    <div class="">
+                        <h3 class="section-title">Pokemones Iniciales</h3>
+                        <div class="starters-grid">
+                            <div class="starter-card planta">
+                                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/firered-leafgreen/1.png" alt="Bulbasaur">
+                                <h4>Bulbasaur</h4>
+                                <span class="type-badge">Planta / Veneno</span>
+                            </div>
+                            <div class="starter-card fuego">
+                                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/firered-leafgreen/4.png" alt="Charmander">
+                                <h4>Charmander</h4>
+                                <span class="type-badge">Fuego</span>
+                            </div>
+                            <div class="starter-card agua">
+                                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/firered-leafgreen/7.png" alt="Squirtle">
+                                <h4>Squirtle</h4>
+                                <span class="type-badge">Agua</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+        
+                <section id="grid-personajes" class="tab-content" style="display: none;">
+                    <h2 class="section-title">Personajes Principales</h2>
+                    <p class="section-subtitle">Las caras más importantes que conocerás en la región de Kanto.</p>
+
+                    <div class="personajes-grid">
+                        
+                        <div class="character-card">
+                            <div class="char-img-wrapper">
+                                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/trainers/red-gen3frlg.png" alt="Red">
+                            </div>
+                            <div class="char-info">
+                                <h3>Red (Entrenador)</h3>
+                                <p><strong>Rol:</strong> Protagonista</p>
+                                <p>Un joven silencioso de Pueblo Paleta con el objetivo de convertirse en el mejor Maestro Pokémon de la historia. El destino de Kanto está en sus manos.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="character-card">
+                            <div class="char-img-wrapper">
+                                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/trainers/blue-gen3frlg.png" alt="Blue">
+                            </div>
+                            <div class="char-info">
+                                <h3>Blue (Rival)</h3>
+                                <p><strong>Rol:</strong> Rival de la infancia</p>
+                                <p>Nieto del Profesor Oak. Es un entrenador increíblemente talentoso pero presumido. Te desafiará en los momentos más inesperados para medir tu fuerza.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="character-card">
+                            <div class="char-img-wrapper">
+                                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/trainers/oak.png" alt="Profesor Oak">
+                            </div>
+                            <div class="char-info">
+                                <h3>Profesor Oak</h3>
+                                <p><strong>Rol:</strong> Mentor y Científico</p>
+                                <p>La máxima autoridad en el estudio de los Pokémon. Te confía tu primer compañero y te entrega la Pokédex con la misión de registrar a todas las especies de la región.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="character-card">
+                            <div class="char-img-wrapper">
+                                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/trainers/giovanni.png" alt="Giovanni">
+                            </div>
+                            <div class="char-info">
+                                <h3>Giovanni</h3>
+                                <p><strong>Rol:</strong> Líder del Equipo Rocket</p>
+                                <p>La mente maestra criminal detrás de los robos y experimentos con Pokémon en toda la región. Su organización intentará detenerte a toda costa.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+        
+                <section id="grid-pokedex" class="tab-content" style="display: none;">
+                    <h2 class="section-title">Pokédex Regional</h2>
+    
+                        <div class="pokedex-book-layout">
+                            <div id="pokedex-left-page" class="pokedex-book-page"></div>
+                            <div id="pokedex-right-page" class="pokedex-book-page"></div>
+                        </div>
+
+                        <div class="book-pagination">
+                            <button id="btn-prev-page" class="btn-page">◀ Anterior</button>
+                            <span id="page-indicator">Pág. 1 de 1</span>
+                            <button id="btn-next-page" class="btn-page">Siguiente ▶</button>
+                        </div>
+                </section>
+                
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>
+<script src="js/rojoFuego.js"></script>
