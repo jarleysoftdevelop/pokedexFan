@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/rojoFuego.css">
+    <link rel="stylesheet" href="resources/styles/rojoFuego.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Selector Juego</title>
 </head>
@@ -28,6 +28,7 @@
                     <p id="inicio">Inicio</p>
                     <p id="personajes">Personajes</p>
                     <p id="pokedex">Pokedex</p>
+                    <p id="GameHub">GameHub</p>
                 </div>
             </div>
             <div class="info_page">
@@ -139,6 +140,10 @@
                             <button id="btn-next-page" class="btn-page">Siguiente ▶</button>
                         </div>
                 </section>
+                <section id="grid-GameHub" class="tab-content" style="display: none;">
+                    <button id="btn-startGame">Iniciar</button>
+                    <canvas id="gba-canvas" width="240" height="160" style="background-color: black; border: 4px solid #333; border-radius: 8px; display: block; margin: 20px auto;"></canvas>
+                </section>
                 
             </div>
         </div>
@@ -146,4 +151,87 @@
     </div>
 </body>
 </html>
-<script src="js/rojoFuego.js"></script>
+<script>
+    window.__LITTLE_ENDIAN__ = true;
+
+    // Inicializadores de arrays binarios de audio/gráficos
+    window.getFloat32Array = function(size) { return new Float32Array(size); };
+    window.getUint8Array   = function(size) { return new Uint8Array(size); };
+    window.getUint16Array  = function(size) { return new Uint16Array(size); };
+    window.getUint32Array  = function(size) { return new Uint32Array(size); };
+    window.getInt32Array   = function(size) { return new Int32Array(size); };
+
+    // Helpers de vistas de datos (TypedArray Views)
+    window.getUint8View   = function(buffer) { return new Uint8Array(buffer); };
+    window.getUint16View  = function(buffer) { return new Uint16Array(buffer); };
+    window.getUint32View  = function(buffer) { return new Uint32Array(buffer); };
+    window.getInt32View   = function(buffer) { return new Int32Array(buffer); };
+
+    // =====================================================================
+    // BLINDAJE ULTRA-GLOBAL PARA EL CORE DE AUDIO (FIFO PROTOTYPE)
+    // =====================================================================
+    // Agregamos de forma forzada .shift(), .push() y .requestingDMA() a la raíz 
+    // de todos los objetos para interceptar los buffers rebeldes del mezclador.
+
+    if (!Object.prototype.shift) {
+        Object.defineProperty(Object.prototype, 'shift', {
+            value: function() {
+                if (!this._backupArray) this._backupArray = [];
+                return this._backupArray.shift() || 0;
+            },
+            writable: true, configurable: true
+        });
+    }
+
+    if (!Object.prototype.push) {
+        Object.defineProperty(Object.prototype, 'push', {
+            value: function(val) {
+                if (!this._backupArray) this._backupArray = [];
+                return this._backupArray.push(val);
+            },
+            writable: true, configurable: true
+        });
+    }
+
+    if (!Object.prototype.requestingDMA) {
+        Object.defineProperty(Object.prototype, 'requestingDMA', {
+            value: function() {
+                // Devolvemos false por defecto para que el DMA no se quede en bucle infinito
+                return false; 
+            },
+            writable: true, configurable: true
+        });
+    }
+</script>
+
+<script src="resources/js/emulador/IodineGBA.js"></script>
+<script src="resources/js/rojoFuego.js"></script>
+<script src="resources/js/gameHub.js"></script>
+<script>
+    /* van despues de irq
+    // Parche temporal para evitar que Memory estalle si busca las instancias antes de tiempo
+    window.GameBoyAdvanceDMA0 = function() {};
+    window.GameBoyAdvanceDMA1 = function() {};
+    window.GameBoyAdvanceDMA2 = function() {};
+    window.GameBoyAdvanceDMA3 = function() {};
+
+    // Parche para el sistema de video de IodineGBA
+    window.GameBoyAdvanceRendererProxy = function() {};
+    window.GameBoyAdvanceRenderer = function() {};
+
+    // 3. Parche para comunicaciones, periféricos de E/S y extensiones (¡Aquí solucionamos el Serial!)
+    window.GameBoyAdvanceSerial = function() {};
+    window.GameBoyAdvanceJoyPad = function() {};
+    window.GameBoyAdvanceSaves = function() {};
+
+    // 3. Parches de Periféricos, Comunicación y Cartucho (¡Aquí solucionamos el Cartridge!)
+    window.GameBoyAdvanceCartridge = function() {};
+    window.GameBoyAdvanceSerial = function() {};
+    window.GameBoyAdvanceJoyPad = function() {};
+    window.GameBoyAdvanceSaves = function() {};
+    
+    // 4. Parches de Audio, Temporizadores e Interrupciones
+    window.GameBoyAdvanceSound = function() {};
+    window.GameBoyAdvanceTimer = function() {};
+    window.GameBoyAdvanceIRQ = function() {};*/
+</script>
